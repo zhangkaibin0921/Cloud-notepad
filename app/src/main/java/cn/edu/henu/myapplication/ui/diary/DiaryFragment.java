@@ -19,19 +19,12 @@ import cn.edu.henu.myapplication.R;
 
 public class DiaryFragment extends Fragment {
 
-    private Button btn;
+    private Button btn_add;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root= inflater.inflate(R.layout.fragment_diary,container,false);
-        btn=root.findViewById(R.id.btn);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(root.getContext(), "请输入您的姓名",Toast.LENGTH_LONG).show();
-            }
-        });
+        
         return root;
     }
 
