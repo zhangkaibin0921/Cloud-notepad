@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_diary">
+
+    <fragment
+        android:id="@+id/navigation_diary"
+        android:name="cn.edu.henu.myapplication.ui.diary.DiaryFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_diary" />
+    <fragment
+        android:id="@+id/navigation_mine"
+        android:name="cn.edu.henu.myapplication.ui.mine.MineFragment"
+        android:label="mine"
+        tools:layout="@layout/fragment_mine" />
+
+</navigation>
