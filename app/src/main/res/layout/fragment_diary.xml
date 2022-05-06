@@ -16,7 +16,7 @@
         android:layout_marginRight="58dp"
         android:layout_marginBottom="92dp"
         android:clickable="true"
-        tools:srcCompat="@drawable/add" />
+        android:background="@drawable/add" />
 
 
 

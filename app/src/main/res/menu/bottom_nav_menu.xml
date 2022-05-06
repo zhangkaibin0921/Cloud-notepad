@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/navigation_diary"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="diary" />
+        android:icon="@drawable/diary_foreground"
+        android:title="笔记" />
 
     <item
         android:id="@+id/navigation_mine"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="mine" />
+        android:icon="@drawable/mine_foreground"
+        android:title="我的" />
 
 </menu>
