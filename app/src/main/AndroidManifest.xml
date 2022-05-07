@@ -22,6 +22,10 @@
             android:name=".Setting">
 
         </activity>
+        <activity
+            android:name=".AddDiary">
+
+        </activity>
     </application>
 
 </manifest>
