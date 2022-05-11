@@ -21,6 +21,11 @@ tools:context=".ui.diary.DiaryFragment">
         android:layout_marginLeft="8dp"
         android:background="@drawable/ic_baseline_menu1"
         />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 
     <ImageButton
         android:id="@+id/add"
