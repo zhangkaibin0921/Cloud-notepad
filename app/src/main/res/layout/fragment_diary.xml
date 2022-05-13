@@ -12,6 +12,9 @@ tools:context=".ui.diary.DiaryFragment">
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+<!--    <include-->
+<!--        android:id="@+id/toolbar"-->
+<!--        layout="@layout/toolbar" />-->
 
 <!--    左上角菜单图标-->
     <Button
@@ -24,19 +27,32 @@ tools:context=".ui.diary.DiaryFragment">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
-
-    <ImageButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add"
-        android:background="@drawable/add"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:scaleType="centerInside"
-        android:layout_marginTop="550dp"
-        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
-        />
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="550dp"
+        android:src="@drawable/add"
+        app:backgroundTint="@color/white"
+        tools:ignore="UsingOnClickInXml"
+         />
+
+
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/add"-->
+<!--        android:background="@drawable/add"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:scaleType="centerInside"-->
+<!--        android:layout_marginTop="550dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        android:layout_gravity="right|bottom"-->
+<!--        />-->
 
 
 </LinearLayout>

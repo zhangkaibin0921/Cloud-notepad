@@ -3,6 +3,7 @@ package cn.edu.henu.myapplication.ui.diary;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +16,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -39,15 +43,28 @@ public class DiaryFragment extends Fragment {
     Context context;
     private ImageButton add;
 
+    private Toolbar toolbar;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root= inflater.inflate(R.layout.fragment_diary,container,false);
+        toolbar=root.findViewById(R.id.mytoolbar);
+
+        setHasOptionsMenu(true);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+
+        root= inflater.inflate(R.layout.fragment_diary,container,false);
         mDrawerLayout=(DrawerLayout)root.findViewById(R.id.drawerLayout);
         NavigationView navView=(NavigationView)root.findViewById(R.id.nav_view);
         Button setting=root.findViewById(R.id.setting);
         ImageButton add=root.findViewById(R.id.add);
 
+
+
+
+
         context=getContext();
+
 
         //左上角菜单图标设置点击事件
         setting.setOnClickListener(new View.OnClickListener() {
