@@ -2,37 +2,31 @@ package cn.edu.henu.myapplication.ui.diary;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 
-import org.jetbrains.annotations.NotNull;
-import org.litepal.tablemanager.Connector;
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.edu.henu.myapplication.AddDiary;
-import cn.edu.henu.myapplication.MainActivity;
+import cn.edu.henu.myapplication.Note;
+import cn.edu.henu.myapplication.NoteAdapter;
 import cn.edu.henu.myapplication.R;
 import cn.edu.henu.myapplication.Setting;
 
@@ -44,6 +38,9 @@ public class DiaryFragment extends Fragment {
     private Button setting;
     Context context;
     private ImageButton add;
+
+    private List<Note> noteList = new ArrayList<>();
+    private RecyclerView recyclerView;
 
     private Toolbar toolbar;
 
@@ -64,6 +61,14 @@ public class DiaryFragment extends Fragment {
 
 
         context=getContext();
+
+        recyclerView =root.findViewById(R.id.recycler_view);// 获取RecyclerView实例
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+        recyclerView.setLayoutManager(layoutManager);// 设置垂直式排列
+        NoteAdapter adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例
+        recyclerView.setAdapter(adapter);// 完成适配器设置
+
+
 
 
         //左上角菜单图标设置点击事件
@@ -98,11 +103,6 @@ public class DiaryFragment extends Fragment {
                 mDrawerLayout.closeDrawers();
                 return false;
             }
-
-
-
-
-
         });
 
         return root;
