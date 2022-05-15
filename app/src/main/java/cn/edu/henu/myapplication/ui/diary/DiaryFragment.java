@@ -2,6 +2,7 @@ package cn.edu.henu.myapplication.ui.diary;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.navigation.NavigationView;
 
 import org.jetbrains.annotations.NotNull;
+import org.litepal.tablemanager.Connector;
 
 import cn.edu.henu.myapplication.AddDiary;
 import cn.edu.henu.myapplication.MainActivity;
@@ -58,8 +60,6 @@ public class DiaryFragment extends Fragment {
         NavigationView navView=(NavigationView)root.findViewById(R.id.nav_view);
         Button setting=root.findViewById(R.id.setting);
         ImageButton add=root.findViewById(R.id.add);
-
-
 
 
 

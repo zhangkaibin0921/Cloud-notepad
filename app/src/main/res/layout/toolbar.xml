@@ -33,13 +33,10 @@
 
 
         <ImageView
+            android:id="@+id/right"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:padding="7dp"
             />
-
-
     </LinearLayout>
-
-
 </androidx.appcompat.widget.Toolbar>

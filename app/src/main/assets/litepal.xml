@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="NoteBook"></dbname>
+    <version value="1"></version>
+    <list>
+        <mapping class="com.example.notebook.NoteBook"></mapping>
+    </list>
+</litepal>
