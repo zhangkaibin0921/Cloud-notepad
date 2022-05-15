@@ -21,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import org.litepal.crud.DataSupport;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +31,7 @@ import cn.edu.henu.myapplication.Note;
 import cn.edu.henu.myapplication.NoteAdapter;
 import cn.edu.henu.myapplication.R;
 import cn.edu.henu.myapplication.Setting;
+import cn.edu.henu.myapplication.db.NoteBook;
 
 
 public class DiaryFragment extends Fragment {
@@ -59,14 +62,26 @@ public class DiaryFragment extends Fragment {
         ImageButton add=root.findViewById(R.id.add);
 
 
-
         context=getContext();
+
+
 
         recyclerView =root.findViewById(R.id.recycler_view);// 获取RecyclerView实例
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);// 设置垂直式排列
+
+        List<NoteBook> notes = DataSupport.findAll(NoteBook.class);
+
+        for(NoteBook note : notes){
+            Note temp = new Note(note.getContent(), note.getTime(), note.getTag());
+            noteList.add(temp);
+        }
+
         NoteAdapter adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例
         recyclerView.setAdapter(adapter);// 完成适配器设置
+
+
+
 
 
 
@@ -90,7 +105,6 @@ public class DiaryFragment extends Fragment {
             }
         });
 
-
         //抽屉菜单中设置选项的点击事件
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
             @Override
@@ -107,7 +121,4 @@ public class DiaryFragment extends Fragment {
 
         return root;
     }
-
-
-
 }

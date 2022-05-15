@@ -40,21 +40,6 @@ tools:context=".ui.diary.DiaryFragment">
         app:backgroundTint="@color/white"
         tools:ignore="UsingOnClickInXml"
          />
-
-
-
-<!--    <ImageButton-->
-<!--        android:id="@+id/add"-->
-<!--        android:background="@drawable/add"-->
-<!--        android:layout_width="60dp"-->
-<!--        android:layout_height="60dp"-->
-<!--        android:scaleType="centerInside"-->
-<!--        android:layout_marginTop="550dp"-->
-<!--        android:layout_marginRight="20dp"-->
-<!--        android:layout_gravity="right|bottom"-->
-<!--        />-->
-
-
 </LinearLayout>
 
 <com.google.android.material.navigation.NavigationView

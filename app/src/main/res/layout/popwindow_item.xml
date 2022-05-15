@@ -4,13 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center">
-
     <ImageView
         android:id="@+id/iconIV"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_margin="14dp" />
-
     <TextView
         android:id="@+id/titleTV"
         android:layout_width="0dp"
@@ -22,5 +20,4 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:layout_marginRight="36dp" />
-
 </LinearLayout>
