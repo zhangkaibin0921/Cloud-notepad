@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import org.litepal.crud.DataSupport;
@@ -36,11 +37,10 @@ import cn.edu.henu.myapplication.db.NoteBook;
 
 public class DiaryFragment extends Fragment {
 
-    private Button btn_add;
+    private FloatingActionButton btn_add;
     private DrawerLayout mDrawerLayout;
     private Button setting;
     Context context;
-    private ImageButton add;
 
     private List<Note> noteList = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -59,10 +59,12 @@ public class DiaryFragment extends Fragment {
         mDrawerLayout=(DrawerLayout)root.findViewById(R.id.drawerLayout);
         NavigationView navView=(NavigationView)root.findViewById(R.id.nav_view);
         Button setting=root.findViewById(R.id.setting);
-        ImageButton add=root.findViewById(R.id.add);
+        btn_add=root.findViewById(R.id.add);
 
 
         context=getContext();
+
+        noteList.clear();
 
 
 
@@ -79,6 +81,8 @@ public class DiaryFragment extends Fragment {
 
         NoteAdapter adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例
         recyclerView.setAdapter(adapter);// 完成适配器设置
+        adapter.notifyDataSetChanged();
+
 
 
 
@@ -95,7 +99,7 @@ public class DiaryFragment extends Fragment {
         });
 
         //新建笔记按钮
-        add.setOnClickListener(new View.OnClickListener() {
+        btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

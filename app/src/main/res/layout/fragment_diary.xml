@@ -10,7 +10,7 @@ tools:context=".ui.diary.DiaryFragment">
 <!-- 内容区 -->
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 <!--    <include-->
 <!--        android:id="@+id/toolbar"-->
@@ -24,21 +24,25 @@ tools:context=".ui.diary.DiaryFragment">
         android:layout_marginLeft="8dp"
         android:background="@drawable/ic_baseline_menu1"
         />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginRight="20dp"
         android:src="@drawable/add"
         app:backgroundTint="@color/white"
         tools:ignore="UsingOnClickInXml"
-         />
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
 <!--    android:layout_marginTop="500dp"-->
 </LinearLayout>
 

@@ -13,15 +13,15 @@ import cn.edu.henu.myapplication.R;
 
 
 public class TitleLayout extends LinearLayout {
-    private ImageView iv_backward;
-    private TextView tv_title, tv_forward;
+    private ImageView left,right;
+    private TextView tv_title;
 
     public TitleLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         LinearLayout bar_title = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.bar_title, this);
-        iv_backward = (ImageView) bar_title.findViewById(R.id.iv_backward);
+        left = (ImageView) bar_title.findViewById(R.id.left);
         tv_title = (TextView) bar_title.findViewById(R.id.tv_title);
-        tv_forward = (TextView) bar_title.findViewById(R.id.tv_forward);
+        right =  bar_title.findViewById(R.id.right);
         /*if(ActivityCollector.getCurrentActivity().getClass().equals(PersonInfo.class)){
             tv_forward.setText("保存");
             tv_title.setText("编辑资料");
@@ -33,14 +33,14 @@ public class TitleLayout extends LinearLayout {
 
         //设置监听器
         //如果点击back则结束活动
-        iv_backward.setOnClickListener(new OnClickListener() {
+        left.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((Activity)getContext()).finish();
             }
         });
     }
-    public TextView getTextView_forward(){
-        return tv_forward;
+    public ImageView getTextView_forward(){
+        return right;
     }
 }

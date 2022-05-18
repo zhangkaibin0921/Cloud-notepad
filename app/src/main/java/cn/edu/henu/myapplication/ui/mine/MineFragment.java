@@ -18,20 +18,22 @@ import cn.edu.henu.myapplication.ui.diary.DiaryFragment;
 
 
 public class MineFragment extends Fragment {
-    private ImageView left;
-    private TextView tv_title,tv_forward;
+    private ImageView left,right;
+    private TextView tv_title;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root= inflater.inflate(R.layout.activity_person_info,container,false);
-        left=root.findViewById(R.id.iv_backward);
+        left=root.findViewById(R.id.left);
         tv_title=root.findViewById(R.id.tv_title);
-        tv_forward=root.findViewById(R.id.tv_forward);
+        right=root.findViewById(R.id.right);
         left.setImageDrawable(Drawable.createFromPath(""));
-        tv_forward.setText("");
-        tv_title.setText("我的");
+        right.setImageDrawable(Drawable.createFromPath(""));
+        left.setClickable(false);
+        right.setClickable(false);
 
+        tv_title.setText("我的");
 
         return root;
     }
