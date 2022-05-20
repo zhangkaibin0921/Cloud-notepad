@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
@@ -18,6 +21,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
 
         // 内部类ViewHolder
         View noteView;
+        TextView noteTitle;
         TextView noteContent;
         TextView noteTime;
 
@@ -26,6 +30,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
             // 传入子项的最外层布局
             super(view);
             noteView = view;
+            noteTitle=(TextView) view.findViewById(R.id.noteTitle);
             noteContent = (TextView) view.findViewById(R.id.noteContent);// 获取实例
             noteTime = (TextView) view.findViewById(R.id.noteTime);// 获取实例
         }
@@ -56,8 +61,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
 
                 Intent intent = new Intent(v.getContext(), UpdateDiary.class);
                 String contentData = note.getNoteContent();
+                String contentTitle=note.getNoteTitle();
                 int tagData = note.getNoteTag();
                 // intent.putExtra("键",数据)
+                intent.putExtra("title_data",contentTitle);
                 intent.putExtra("content_data", contentData);
                 intent.putExtra("tag_data", String.valueOf(tagData));
                 v.getContext().startActivity(intent);
@@ -95,6 +102,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
 
         // 为子项赋值，子项被滚动到屏幕就执行
         Note note = mNoteList.get(position);
+        holder.noteTitle.setText(note.getNoteTitle());
         holder.noteContent.setText(note.getNoteContent());
         holder.noteTime.setText(note.getNoteTime());
     }

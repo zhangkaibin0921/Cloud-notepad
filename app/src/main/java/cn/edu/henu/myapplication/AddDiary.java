@@ -70,6 +70,7 @@ public class AddDiary extends AppCompatActivity {
     public void NoteSave(){
         NoteBook note = new NoteBook();
         String inputContent = content.getText().toString();// 笔记的内容
+        String inputTitle=content_title.getText().toString();
 
 
         Calendar calendar= Calendar.getInstance();
@@ -79,6 +80,7 @@ public class AddDiary extends AppCompatActivity {
         Random r=new Random();
         int inputTag =r.nextInt() ;//getRandom();// 笔记的标识
 
+        note.setTitle(inputTitle);
         note.setContent(inputContent);
         note.setTime(inputTime);
         note.setTag(inputTag);

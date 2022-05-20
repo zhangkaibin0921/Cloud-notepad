@@ -24,7 +24,7 @@ import cn.edu.henu.myapplication.ui.diary.DiaryFragment;
 public class UpdateDiary extends AppCompatActivity{
     private ImageView left,right;
     private TextView tv_title;
-    private AppCompatEditText content_title,content;
+    private AppCompatEditText content_biaoti,content;
     public String tag_data,lastcontent;
 
 
@@ -36,14 +36,17 @@ public class UpdateDiary extends AppCompatActivity{
         right=findViewById(R.id.right);
         tv_title=findViewById(R.id.tv_title);
         content=findViewById(R.id.et_content);
-        content_title=findViewById(R.id.et_title);
+        content_biaoti=findViewById(R.id.et_title);
         tv_title.setText("写笔记");
         SQLiteDatabase db = Connector.getDatabase();
 
         Intent intent = UpdateDiary.this.getIntent();
         String content_data = intent.getStringExtra("content_data");
         tag_data = intent.getStringExtra("tag_data");
+        String content_title=intent.getStringExtra("title_data");
         content.setText(content_data);
+        content_biaoti.setText(content_title);
+
         lastcontent=content_data;
 
         left.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +71,11 @@ public class UpdateDiary extends AppCompatActivity{
 
     public void NoteUpdate(){
         NoteBook note = new NoteBook();
+        String inputTitle=content_biaoti.getText().toString();
         String inputContent = content.getText().toString();// 从文本框获取更改后的笔记内容
 
         note.setContent(inputContent);
+        note.setTitle(inputTitle);
         note.updateAll("content = ?", lastcontent);
     }
 

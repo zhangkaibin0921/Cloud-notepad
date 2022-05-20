@@ -75,7 +75,7 @@ public class DiaryFragment extends Fragment {
         List<NoteBook> notes = DataSupport.findAll(NoteBook.class);
 
         for(NoteBook note : notes){
-            Note temp = new Note(note.getContent(), note.getTime(), note.getTag());
+            Note temp = new Note(note.getContent(), note.getTime(), note.getTag(),note.getTitle());
             noteList.add(temp);
         }
 
