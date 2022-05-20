@@ -54,7 +54,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
                 int position = holder.getAdapterPosition();
                 Note note = mNoteList.get(position);
 
-                Intent intent = new Intent(v.getContext(), AddDiary.class);
+                Intent intent = new Intent(v.getContext(), UpdateDiary.class);
                 String contentData = note.getNoteContent();
                 int tagData = note.getNoteTag();
                 // intent.putExtra("键",数据)
@@ -75,6 +75,16 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
 
                 String time = note.getNoteTime();
                 Toast.makeText(v.getContext(), "笔记创建于" + time, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        holder.noteTime.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int position = holder.getAdapterPosition();
+                Note note = mNoteList.get(position);
+                Toast.makeText(v.getContext(), "我是长按事件", Toast.LENGTH_LONG).show();
+                return false;
             }
         });
         return holder;

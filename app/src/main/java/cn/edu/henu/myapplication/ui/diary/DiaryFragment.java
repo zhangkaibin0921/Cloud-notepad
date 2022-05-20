@@ -79,9 +79,13 @@ public class DiaryFragment extends Fragment {
             noteList.add(temp);
         }
 
+
+
         NoteAdapter adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例
-        recyclerView.setAdapter(adapter);// 完成适配器设置
         adapter.notifyDataSetChanged();
+        recyclerView.setAdapter(adapter);// 完成适配器设置
+
+
 
 
 
