@@ -12,8 +12,17 @@
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/input_layout.xml" value="0.24947916666666667" />
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/layout_progress.xml" value="0.16802536231884058" />
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/login_success.xml" value="0.20833333333333334" />
+<<<<<<< HEAD
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/password_change.xml" value="0.20833333333333334" />
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/register.xml" value="0.20833333333333334" />
+=======
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/note_item.xml" value="0.20989583333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/password_change.xml" value="0.1" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/photo_select.xml" value="0.20989583333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/popupwindow.xml" value="0.20989583333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/popwindow_item.xml" value="0.20989583333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/register.xml" value="0.2" />
+>>>>>>> df55cf4d7c407f939851f3ee5af12ac5977376b2
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/title_layout.xml" value="0.20833333333333334" />
         <entry key="..\:/Cloud/app/src/main/res/drawable/arrow_back.xml" value="0.1" />
         <entry key="..\:/Cloud/app/src/main/res/drawable/arrow_forward.xml" value="0.1" />
@@ -35,8 +44,13 @@
         <entry key="..\:/Users/dongh/Desktop/新建文件夹/Cloud-notepad/app/src/main/res/layout/popwindow_item.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/dongh/Desktop/新建文件夹/Cloud-notepad/app/src/main/res/layout/toolbar.xml" value="0.24947916666666667" />
         <entry key="..\:/homework/Cloud-notepad/app/src/main/res/layout/login_main.xml" value="0.1" />
+<<<<<<< HEAD
         <entry key="..\:/homework/Cloud-notepad/app/src/main/res/layout/login_success.xml" value="0.1875" />
         <entry key="..\:/homework/Cloud-notepad/app/src/main/res/layout/register.xml" value="0.264" />
+=======
+        <entry key="..\:/homework/Cloud-notepad/app/src/main/res/layout/register.xml" value="0.36614583333333334" />
+        <entry key="..\:/item/Cloud-notepad/app/src/main/res/layout/popupwindow.xml" value="0.1" />
+>>>>>>> df55cf4d7c407f939851f3ee5af12ac5977376b2
       </map>
     </option>
   </component>
