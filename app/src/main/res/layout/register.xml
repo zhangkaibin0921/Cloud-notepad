@@ -74,6 +74,30 @@
             android:background="#eeeeee" />
 
         <LinearLayout
+            android:id="@+id/input_layout_number"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/number" />
+
+            <EditText
+                android:id="@+id/number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:background="#00000000"
+                android:hint="电话号码"
+                android:inputType="textPassword"
+                android:padding="5dip"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/input_layout_psw"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -96,9 +120,32 @@
                 android:padding="5dip"
                 android:textSize="16sp" />
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/input_layout_repsw"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/key" />
+
+            <EditText
+                android:id="@+id/rekey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:background="#00000000"
+                android:hint="确认密码"
+                android:inputType="textPassword"
+                android:padding="5dip"
+                android:textSize="16sp" />
+        </LinearLayout>
     </LinearLayout>
 
-    <TextView
+    <Button
         android:id="@+id/main_btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -9,12 +9,20 @@
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/activity_edit_name.xml" value="0.24947916666666667" />
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/activity_main.xml" value="0.20833333333333334" />
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/activity_person_info.xml" value="0.20833333333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/activity_setting.xml" value="0.20989583333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/fragment_diary.xml" value="0.20989583333333334" />
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/input_layout.xml" value="0.24947916666666667" />
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/layout_progress.xml" value="0.16802536231884058" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/login_main.xml" value="0.20989583333333334" />
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/login_success.xml" value="0.20833333333333334" />
-        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/password_change.xml" value="0.20833333333333334" />
-        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/register.xml" value="0.20833333333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/note_item.xml" value="0.20989583333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/password_change.xml" value="0.1" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/photo_select.xml" value="0.20989583333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/popupwindow.xml" value="0.20989583333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/popwindow_item.xml" value="0.20989583333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/register.xml" value="0.128" />
         <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/title_layout.xml" value="0.20833333333333334" />
+        <entry key="..\:/Clone-notepad/Cloud-notepad/app/src/main/res/layout/toolbar.xml" value="0.20989583333333334" />
         <entry key="..\:/Cloud/app/src/main/res/drawable/arrow_back.xml" value="0.1" />
         <entry key="..\:/Cloud/app/src/main/res/drawable/arrow_forward.xml" value="0.1" />
         <entry key="..\:/Cloud/app/src/main/res/layout/activity_edit_name.xml" value="0.1793478260869565" />
