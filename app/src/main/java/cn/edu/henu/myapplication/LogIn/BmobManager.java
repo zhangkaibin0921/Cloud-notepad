@@ -26,12 +26,5 @@ public class BmobManager {
 
         Bmob.initialize(mContext, BMOB_SDK_ID);
     }
-    // 手机登录成功后获取本地对象
-    public MyUser getUser() {
-        return BmobUser.getCurrentUser(MyUser.class);
-    }
-    // 是否登录
-    public boolean isLogin() {
-        return BmobUser.isLogin();
-    }
+
 }
