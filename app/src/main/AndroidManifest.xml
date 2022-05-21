@@ -64,5 +64,13 @@
             android:name=".PasswordChangActivity">
         </activity>
 
+        <activity
+            android:name=".Mine">
+        </activity>
+
+        <activity
+            android:name=".PersonInfo">
+        </activity>
+
     </application>
 </manifest>

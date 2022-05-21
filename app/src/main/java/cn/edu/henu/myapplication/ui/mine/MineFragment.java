@@ -21,10 +21,9 @@ public class MineFragment extends Fragment {
     private ImageView left,right;
     private TextView tv_title;
 
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root= inflater.inflate(R.layout.activity_person_info,container,false);
+        View root= inflater.inflate(R.layout.mine_layout,container,false);
         left=root.findViewById(R.id.left);
         tv_title=root.findViewById(R.id.tv_title);
         right=root.findViewById(R.id.right);
