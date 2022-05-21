@@ -72,7 +72,7 @@ public class DiaryFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);// 设置垂直式排列
 
-        List<NoteBook> notes = DataSupport.findAll(NoteBook.class);
+        List<NoteBook> notes = DataSupport.order("time desc").find(NoteBook.class);
 
         for(NoteBook note : notes){
             Note temp = new Note(note.getContent(), note.getTime(), note.getTag(),note.getTitle());

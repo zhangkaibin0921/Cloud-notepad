@@ -9,8 +9,6 @@ public class Note {
     private String noteTitle;
 
     public Note(String noteContent, String noteTime, int noteTag,String noteTitle){
-
-
         this.noteContent = noteContent;
         this.noteTime = noteTime;
         this.noteTag = noteTag;

@@ -76,7 +76,7 @@ public class UpdateDiary extends AppCompatActivity{
 
         note.setContent(inputContent);
         note.setTitle(inputTitle);
-        note.updateAll("content = ?", lastcontent);
+        note.updateAll("content=?",""+lastcontent);
     }
 
 }
