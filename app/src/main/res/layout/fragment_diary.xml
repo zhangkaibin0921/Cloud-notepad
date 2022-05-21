@@ -25,26 +25,40 @@ tools:context=".ui.diary.DiaryFragment">
         android:background="@drawable/ic_baseline_menu1"
         />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|bottom"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="20dp"
-        android:src="@drawable/add"
-        app:backgroundTint="@color/white"
-        tools:ignore="UsingOnClickInXml"
-        />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <LinearLayout
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_weight="8"
+            android:layout_height="wrap_content" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/add"
+            android:layout_margin="16dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/add"
+            app:backgroundTint="@color/white"
+            tools:ignore="UsingOnClickInXml"
+            />
+    </LinearLayout>
 
 <!--    android:layout_marginTop="500dp"-->
 </LinearLayout>
+
 
 <com.google.android.material.navigation.NavigationView
     android:id="@+id/nav_view"
