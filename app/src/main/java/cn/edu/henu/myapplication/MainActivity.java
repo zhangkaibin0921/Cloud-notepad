@@ -13,7 +13,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import org.litepal.tablemanager.Connector;
 
-import cn.bmob.v3.Bmob;
+//import cn.bmob.v3.Bmob;
 import cn.edu.henu.myapplication.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bmob.initialize(this, "4c33e339432a88901c207e9a7a7114ee");
+       // Bmob.initialize(this, "4c33e339432a88901c207e9a7a7114ee");
 
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());

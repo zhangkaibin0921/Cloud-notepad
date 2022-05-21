@@ -4,6 +4,7 @@ import org.litepal.crud.DataSupport;
 
 public class NoteBook extends DataSupport{
     private int id;
+    private String title;
     private String content;
     private String time;
     private int tag;
@@ -30,5 +31,11 @@ public class NoteBook extends DataSupport{
     }
     public void setTag(int tag){
         this.tag = tag;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

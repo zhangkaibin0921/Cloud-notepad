@@ -72,16 +72,20 @@ public class DiaryFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);// 设置垂直式排列
 
-        List<NoteBook> notes = DataSupport.findAll(NoteBook.class);
+        List<NoteBook> notes = DataSupport.order("time desc").find(NoteBook.class);
 
         for(NoteBook note : notes){
-            Note temp = new Note(note.getContent(), note.getTime(), note.getTag());
+            Note temp = new Note(note.getContent(), note.getTime(), note.getTag(),note.getTitle());
             noteList.add(temp);
         }
 
+
+
         NoteAdapter adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例
-        recyclerView.setAdapter(adapter);// 完成适配器设置
         adapter.notifyDataSetChanged();
+        recyclerView.setAdapter(adapter);// 完成适配器设置
+
+
 
 
 
