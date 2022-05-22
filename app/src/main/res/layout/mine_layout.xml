@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".Mine">
+    tools:context=".MineFragment">
 
     <!--    标题栏-->
     <cn.edu.henu.myapplication.widget.TitleLayout
@@ -77,13 +77,52 @@
             android:layout_weight="1"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/layout_myinformation"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/myinformation" />
+
+        <TextView
+            android:id="@+id/myinformation"
+            android:layout_width="298dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="个人信息"
+            android:textColor="#7e7e7e"
+            android:textSize="19sp" />
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/arrow_forward" />
+
+    </LinearLayout>
+
+
+    <View android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#CACCCC"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"/>
     <!--    联系我们-->
     <LinearLayout
         android:id="@+id/layout_callus"
         android:layout_width="match_parent"
         android:layout_height="82dp"
         android:background="@color/white"
-        android:paddingTop="30dp"
+        android:paddingTop="20dp"
         android:paddingBottom="10dp">
 
         <ImageView
@@ -104,11 +143,13 @@
             android:textSize="19sp" />
 
         <ImageView
-            android:id="@+id/arrow_forward"
             android:layout_width="34dp"
             android:layout_height="29dp"
             android:src="@drawable/arrow_forward" />
 
     </LinearLayout>
+
+
+    <!--    个人信息-->
 
 </LinearLayout>
