@@ -1,14 +1,17 @@
 package cn.edu.henu.myapplication.ui.diary;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.PopupWindow;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -83,11 +86,9 @@ public class DiaryFragment extends Fragment {
 
         NoteAdapter adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例
         adapter.notifyDataSetChanged();
+
         recyclerView.setAdapter(adapter);// 完成适配器设置
-
-
-
-
+        adapter.notifyDataSetChanged();
 
 
 
@@ -104,12 +105,31 @@ public class DiaryFragment extends Fragment {
 
         //新建笔记按钮
         btn_add.setOnClickListener(new View.OnClickListener() {
+            PopupWindow myPopupWindow;
+
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent();
-                intent.setClass(context, AddDiary.class);
-                startActivity(intent);
+                showPopupwindow();
+
+
+            }
+            private void showPopupwindow(){
+                View contentView = LayoutInflater.from(context).inflate(R.layout.popupwindow,null);
+                myPopupWindow = new PopupWindow(contentView, ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT,true);
+
+                View rootview = LayoutInflater.from(context).inflate(R.layout.popupwindow,null);
+                myPopupWindow.showAtLocation(rootview, Gravity.BOTTOM,0,0);
+
+                Button btn = contentView.findViewById(R.id.mw);
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent();
+                        intent.setClass(context, AddDiary.class);
+                        startActivity(intent);
+                    }
+                });
             }
         });
 
@@ -129,4 +149,5 @@ public class DiaryFragment extends Fragment {
 
         return root;
     }
+
 }

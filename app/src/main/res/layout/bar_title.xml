@@ -12,7 +12,7 @@
         android:ellipsize="none"
         android:layout_gravity="center"
         android:singleLine="true"
-        android:src="@drawable/arrow_back" />
+        android:src="@drawable/back_foreground" />
 
     <TextView
         android:id="@+id/tv_title"
