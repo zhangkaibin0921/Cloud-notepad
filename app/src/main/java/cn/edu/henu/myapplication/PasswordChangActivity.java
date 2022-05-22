@@ -1,5 +1,6 @@
 package cn.edu.henu.myapplication;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +24,8 @@ import cn.edu.henu.myapplication.LogIn.UserInfoDB;
 public class PasswordChangActivity extends AppCompatActivity {
     EditText key1,re_key1,pwd_user;
     Button btn;
+    private ImageView mImgBack2;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bmob.initialize(this, "4c33e339432a88901c207e9a7a7114ee");
@@ -55,6 +59,16 @@ public class PasswordChangActivity extends AppCompatActivity {
             }
         });
 
+        //点击返回到我的页面
+        mImgBack2=(ImageView) findViewById(R.id.imgback2);
+
+        mImgBack2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PasswordChangActivity.this, cn.edu.henu.myapplication.ui.mine.MineFragment.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 

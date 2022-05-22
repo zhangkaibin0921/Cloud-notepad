@@ -7,11 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import cn.edu.henu.myapplication.PasswordChangActivity;
 import cn.edu.henu.myapplication.PersonInfo;
 import cn.edu.henu.myapplication.R;
 
@@ -20,6 +22,8 @@ public class MineFragment extends Fragment {
     private ImageView left,right;
     private TextView tv_title;
     private TextView mInfor;
+    private LinearLayout mPwdChange;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -31,6 +35,15 @@ public class MineFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), PersonInfo.class);
+                startActivity(intent);
+            }
+        });
+
+        mPwdChange=root.findViewById(R.id.layout_pwdchange);
+        mPwdChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PasswordChangActivity.class);
                 startActivity(intent);
             }
         });

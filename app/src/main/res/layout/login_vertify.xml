@@ -70,7 +70,6 @@
                 android:layout_marginLeft="10dip"
                 android:background="#00000000"
                 android:hint="电话号码"
-                android:inputType="textPassword"
                 android:padding="5dip"
                 android:textSize="16sp" />
 
