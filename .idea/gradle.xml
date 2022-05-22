@@ -15,6 +15,7 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="gradleJvm" value="1.8" />
       </GradleProjectSettings>
     </option>
   </component>

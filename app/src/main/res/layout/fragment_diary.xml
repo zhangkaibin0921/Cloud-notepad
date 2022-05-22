@@ -41,15 +41,17 @@ tools:context=".ui.diary.DiaryFragment">
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:src="@drawable/add"
-            android:layout_margin="16dp" />
+            android:layout_margin="16dp"
+            android:backgroundTint="#FFFEF0"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
+
             android:src="@drawable/add"
             app:backgroundTint="@color/white"
             tools:ignore="UsingOnClickInXml"
