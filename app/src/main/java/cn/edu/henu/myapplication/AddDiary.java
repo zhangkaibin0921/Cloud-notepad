@@ -59,6 +59,7 @@ public class AddDiary extends AppCompatActivity {
             public void onClick(View view) {
                 NoteSave();
                 Toast.makeText(AddDiary.this,"笔记保存成功",Toast.LENGTH_LONG).show();
+                finish();
             }
         });
 

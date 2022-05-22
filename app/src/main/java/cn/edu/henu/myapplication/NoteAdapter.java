@@ -75,8 +75,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
             // 子项点击事件
             @Override
             public void onClick(View v){
-
-
                 int position = holder.getAdapterPosition();
                 Note note = mNoteList.get(position);
 
@@ -114,3 +112,5 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
         return mNoteList.size();
     }
 }
+
+

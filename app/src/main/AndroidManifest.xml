@@ -25,7 +25,7 @@
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
             android:authorities="cn.edu.henu.myapplication.BmobContentProvider"
-            tools:ignore="MissingClass">
+            >
         </provider>
         <activity
             android:name=".MainActivity"

@@ -86,11 +86,9 @@ public class DiaryFragment extends Fragment {
 
         NoteAdapter adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例
         adapter.notifyDataSetChanged();
+
         recyclerView.setAdapter(adapter);// 完成适配器设置
-
-
-
-
+        adapter.notifyDataSetChanged();
 
 
 
@@ -151,4 +149,5 @@ public class DiaryFragment extends Fragment {
 
         return root;
     }
+
 }
