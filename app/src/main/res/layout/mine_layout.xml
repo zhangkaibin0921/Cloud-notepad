@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".MineFragment">
+    tools:context=".ui.mine.MineFragment">
 
     <!--    标题栏-->
     <cn.edu.henu.myapplication.widget.TitleLayout

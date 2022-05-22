@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity{
 
     private TextView mBtnLogin,mBtnRegister;
     private EditText phoneNumber,password;
+    private TextView mForgetPwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +30,12 @@ public class LoginActivity extends AppCompatActivity{
         setContentView(R.layout.login_main);
         mBtnLogin= (TextView) findViewById(R.id.btn_login);
         mBtnRegister=(TextView) findViewById(R.id.btn_register);
+        mForgetPwd=(TextView) findViewById(R.id.forget);
+
         phoneNumber=findViewById(R.id.number);
         password=findViewById(R.id.key);
         Bmob.initialize(this, "4c33e339432a88901c207e9a7a7114ee");
         Context context=this;
-
-
-
-
-
-
 
 
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +80,14 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RegisteredActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mForgetPwd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, LoginVertifyActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,4 +1,4 @@
-package cn.edu.henu.myapplication;
+package cn.edu.henu.myapplication.ui.mine;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;

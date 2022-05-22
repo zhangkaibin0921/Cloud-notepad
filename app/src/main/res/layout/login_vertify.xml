@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7adfb8"
+    android:fitsSystemWindows="true"
+    tools:context=".LoginActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/fanhu"
+        android:id="@+id/imgback1"/>
+
+    <LinearLayout
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:gravity="center"
+            android:text="验证登录"
+
+            android:textColor="#ffffff"
+            android:textSize="36sp" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="欢迎使用"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="122dp"
+        android:layout_marginLeft="25dip"
+        android:layout_marginRight="25dip"
+        android:layout_marginTop="50dip"
+        android:background="@drawable/radius_drawable_bg"
+        android:orientation="vertical"
+        android:padding="10dip">
+
+        <LinearLayout
+            android:id="@+id/input_layout_number2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/number" />
+
+            <EditText
+                android:id="@+id/number2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:background="#00000000"
+                android:hint="电话号码"
+                android:inputType="textPassword"
+                android:padding="5dip"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="5dip"
+            android:layout_marginBottom="5dip"
+            android:background="#eeeeee" />
+
+        <LinearLayout
+            android:id="@+id/input_layout_vertify"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="41dp"
+                android:layout_height="40dp"
+                android:src="@drawable/img_vertify" />
+
+            <EditText
+                android:id="@+id/vertical"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:background="#00000000"
+                android:hint="验证码"
+                android:inputType="textPassword"
+                android:padding="5dip"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/sent_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="10dip"
+                android:background="#EBF1F3"
+                android:gravity="center"
+                android:hint="发送验证码"
+                android:inputType="textPassword"
+                android:padding="5dip"
+                android:textSize="19sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btn_vertify_login"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginTop="52dip"
+        android:background="@drawable/text_bg"
+        android:gravity="center"
+        android:paddingLeft="15dip"
+        android:paddingTop="2dip"
+        android:paddingRight="15dip"
+        android:paddingBottom="2dip"
+        android:text="登录"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+</LinearLayout>

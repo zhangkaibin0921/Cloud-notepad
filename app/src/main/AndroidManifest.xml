@@ -53,10 +53,6 @@
         </activity>
 
         <activity
-            android:name=".LoginSuccessActivity">
-        </activity>
-
-        <activity
             android:name=".RegisteredActivity">
         </activity>
 
@@ -67,8 +63,12 @@
         <activity android:name=".PersonInfo">
 
         </activity>
-        <activity android:name=".MineFragment" />
+        <activity android:name=".ui.mine.MineFragment"
+            tools:ignore="Instantiatable" />
 
+        <activity
+            android:name=".LoginVertifyActivity">
+        </activity>
 
     </application>
 </manifest>
