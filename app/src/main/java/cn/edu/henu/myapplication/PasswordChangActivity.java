@@ -38,20 +38,20 @@ public class PasswordChangActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserInfoDB user = (UserInfoDB) UserInfoDB.getCurrentUser();
-                user.setKey_info(re_key1.getText().toString());
-                user.update(user.getObjectId(), new UpdateListener() {
-                    @Override
-                    public void done(BmobException e) {
-                        if (e == null) {
-                            Toast.makeText(PasswordChangActivity.this,"密码修改成功",Toast.LENGTH_SHORT).show();
-                        } else {
-                            Log.e("BMOB", e.toString());
-                            Toast.makeText(PasswordChangActivity.this,"密码修改失败",Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
+                //UserInfoDB user = (UserInfoDB) UserInfoDB.getCurrentUser();
+//                user.setKey_info(re_key1.getText().toString());
+//                user.update(user.getObjectId(), new UpdateListener() {
+//                    @Override
+//                    public void done(BmobException e) {
+//                        if (e == null) {
+//                            Toast.makeText(PasswordChangActivity.this,"密码修改成功",Toast.LENGTH_SHORT).show();
+//                        } else {
+//                            Log.e("BMOB", e.toString());
+//                            Toast.makeText(PasswordChangActivity.this,"密码修改失败",Toast.LENGTH_SHORT).show();
+//
+//                        }
+//                    }
+//                });
             }
         });
 

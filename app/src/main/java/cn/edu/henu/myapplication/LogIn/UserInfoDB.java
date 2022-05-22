@@ -1,10 +1,11 @@
 package cn.edu.henu.myapplication.LogIn;
 
+import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
 import io.reactivex.disposables.Disposable;
 
-public class UserInfoDB extends BmobUser {
+public class UserInfoDB extends BmobObject {
     private String user_name; //用户名--昵称
     private String phone; //电话号码
     private String key_info; //登录密码;
@@ -63,7 +64,7 @@ public class UserInfoDB extends BmobUser {
     }
 
     @Override
-    public Disposable save(SaveListener listener) {
+    public Disposable save(SaveListener<String> listener) {
         return super.save(listener);
     }
 }
