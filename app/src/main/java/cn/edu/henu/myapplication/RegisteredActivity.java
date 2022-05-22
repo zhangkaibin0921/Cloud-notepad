@@ -48,13 +48,18 @@ public class RegisteredActivity extends AppCompatActivity {
         key_number = findViewById(R.id.key); //密码
         re_key = findViewById(R.id.rekey); //确认密码
         mTextView = findViewById(R.id.main_btn_login_register); // 确认按钮
-        UserInfoDB user = new UserInfoDB();
-        user.setUser_name(user_name.toString());
-        user.setPhone(phone_number.toString());
-
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                UserInfoDB user = new UserInfoDB();
+                user.setUser_name(user_name.getText().toString());
+                user.setPhone(phone_number.getText().toString());
+                if(key_number.getText().toString().equals(re_key.getText().toString())){
+                    user.setKey_info(key_number.getText().toString());
+                }else{
+                    Toast.makeText(RegisteredActivity.this,"您两次输入的密码不一致，请重新输入!",Toast.LENGTH_SHORT).show();
+                }
+
                 Log.e("ghj","test");
                 user.save(new SaveListener<String>() {
                     @Override
