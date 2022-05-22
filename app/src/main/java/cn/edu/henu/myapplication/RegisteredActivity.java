@@ -60,11 +60,10 @@ public class RegisteredActivity extends AppCompatActivity {
                     Toast.makeText(RegisteredActivity.this,"您两次输入的密码不一致，请重新输入!",Toast.LENGTH_SHORT).show();
                 }
 
-                Log.e("ghj","test");
+
                 user.save(new SaveListener<String>() {
                     @Override
                     public void done(String s, BmobException e) {
-                        Log.e("hjk","hjk");
                         setResult(RESULT_OK);
                         Toast.makeText(RegisteredActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                         finish();
