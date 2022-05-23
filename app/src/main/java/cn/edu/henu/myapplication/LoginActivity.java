@@ -16,6 +16,8 @@ import cn.bmob.v3.listener.SaveListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import cn.edu.henu.myapplication.LogIn.UserInfoDB;
 
 public class LoginActivity extends AppCompatActivity{
@@ -23,6 +25,7 @@ public class LoginActivity extends AppCompatActivity{
     private TextView mBtnLogin,mBtnRegister;
     private EditText phoneNumber,password;
     private TextView mForgetPwd;
+    public  Context context=this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,45 +38,13 @@ public class LoginActivity extends AppCompatActivity{
         phoneNumber=findViewById(R.id.number);
         password=findViewById(R.id.key);
         Bmob.initialize(this, "4c33e339432a88901c207e9a7a7114ee");
-        Context context=this;
+
 
 
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String accountName = phoneNumber.getText().toString().trim();//账号
-                final String accountPassword = password.getText().toString().trim();//密码
-
-                if (TextUtils.isEmpty(accountName)) {
-                    Toast.makeText(context,"账号不能为空", Toast.LENGTH_LONG).show();
-                    return;
-                }
-                if (TextUtils.isEmpty(accountPassword)) {
-                    Toast.makeText(context,"密码不能为空", Toast.LENGTH_LONG).show();
-                    return;
-                }
-                //BmobUser类为Bmob后端云提供类
-//                BombUser bmobUser = new UserInfoDB();
-//                bmobUser.setUsername(accountName);
-//                bmobUser.setPassword(accountPassword);
-//                bmobUser.login(new SaveListener<BombUser>() {
-//                    @Override
-//                    public void done(String s, BmobException e) {
-//                        if (e == null) {
-//
-//                            //登录成功后进入主界面
-//                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                            startActivity(intent);
-//                            finish();
-//                        } else {
-//                            Toast.makeText(context,""+e.getMessage(), Toast.LENGTH_LONG).show();
-//                            //hiddenProgressBar();//隐藏
-//                        }
-//                    }
-//                });
-
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+                login(v);
             }
         });
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +64,37 @@ public class LoginActivity extends AppCompatActivity{
         });
     }
 
+    private void login(final View view) {
+        final String accountName = phoneNumber.getText().toString().trim();//账号
+        final String accountPassword = password.getText().toString().trim();//密码
+
+        if (TextUtils.isEmpty(accountName)) {
+            Toast.makeText(context,"账号不能为空", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (TextUtils.isEmpty(accountPassword)) {
+            Toast.makeText(context,"密码不能为空", Toast.LENGTH_LONG).show();
+            return;
+        }
+        final UserInfoDB user = new UserInfoDB();
+        //此处替换为你的用户名
+        user.setUsername(accountName);
+        //此处替换为你的密码
+        user.setPassword(accountPassword);
+        user.login(new SaveListener<UserInfoDB>() {
+            @Override
+            public void done(UserInfoDB bmobUser, BmobException e) {
+                if (e == null) {
+                    UserInfoDB user = BmobUser.getCurrentUser(UserInfoDB.class);
+                    Snackbar.make(view, "登录成功：" + user.getUsername(), Snackbar.LENGTH_LONG).show();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    Snackbar.make(view, "登录失败：" + e.getMessage(), Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
 
 }
 
