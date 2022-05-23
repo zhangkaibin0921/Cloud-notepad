@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_diary" />
     <fragment
         android:id="@+id/navigation_mine"
-        android:name="cn.edu.henu.myapplication.MineFragment"
+        android:name="cn.edu.henu.myapplication.ui.mine.MineFragment"
         android:label="mine"
         tools:layout="@layout/fragment_mine" />
 
