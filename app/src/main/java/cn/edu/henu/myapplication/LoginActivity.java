@@ -68,14 +68,6 @@ public class LoginActivity extends AppCompatActivity{
         final String accountName = phoneNumber.getText().toString().trim();//账号
         final String accountPassword = password.getText().toString().trim();//密码
 
-        if (TextUtils.isEmpty(accountName)) {
-            Toast.makeText(context,"账号不能为空", Toast.LENGTH_LONG).show();
-            return;
-        }
-        if (TextUtils.isEmpty(accountPassword)) {
-            Toast.makeText(context,"密码不能为空", Toast.LENGTH_LONG).show();
-            return;
-        }
         final UserInfoDB user = new UserInfoDB();
         //此处替换为你的用户名
         user.setUsername(accountName);
