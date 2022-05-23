@@ -39,6 +39,7 @@ import cn.edu.henu.myapplication.db.NoteBook;
 
 
 public class DiaryFragment extends Fragment {
+    public static int DiaryCount;
 
     private FloatingActionButton btn_add;
     private DrawerLayout mDrawerLayout;
@@ -71,6 +72,7 @@ public class DiaryFragment extends Fragment {
 
 
 
+
         recyclerView =root.findViewById(R.id.recycler_view);// 获取RecyclerView实例
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);// 设置垂直式排列
@@ -89,6 +91,7 @@ public class DiaryFragment extends Fragment {
 
         recyclerView.setAdapter(adapter);// 完成适配器设置
         adapter.notifyDataSetChanged();
+        DiaryCount=adapter.getItemCount();
 
 
 

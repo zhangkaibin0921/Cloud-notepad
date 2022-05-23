@@ -15,11 +15,14 @@ import androidx.fragment.app.Fragment;
 import cn.edu.henu.myapplication.PersonInfo;
 import cn.edu.henu.myapplication.R;
 
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.DiaryCount;
+
 
 public class MineFragment extends Fragment {
     private ImageView left,right;
     private TextView tv_title;
-    private TextView mInfor;
+    private TextView mInfor,noteNumber;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class MineFragment extends Fragment {
         right.setImageDrawable(Drawable.createFromPath(""));
         left.setClickable(false);
         right.setClickable(false);
+        noteNumber=root.findViewById(R.id.noteNumber);
+        noteNumber.setText(DiaryCount+"篇");
 
         tv_title.setText("我的");
 
