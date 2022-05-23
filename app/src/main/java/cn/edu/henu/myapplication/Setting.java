@@ -28,6 +28,7 @@ public class Setting extends AppCompatActivity {
         });
     }
 
+
     public void changeTheme(View view) {
     }
 }

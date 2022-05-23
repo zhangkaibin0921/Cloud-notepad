@@ -1,9 +1,13 @@
 package cn.edu.henu.myapplication;
 
+import static cn.bmob.v3.Bmob.getApplicationContext;
+
 import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
@@ -88,11 +92,37 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
             public boolean onLongClick(View v) {
                 int position = holder.getAdapterPosition();
                 Note note = mNoteList.get(position);
-                Toast.makeText(v.getContext(), "我是长按事件", Toast.LENGTH_LONG).show();
+                showPopupMenu(v);
+                //Toast.makeText(v.getContext(), "我是长按事件", Toast.LENGTH_LONG).show();
                 return false;
             }
         });
         return holder;
+    }
+
+    private void showPopupMenu(View view) {
+        // View当前PopupMenu显示的相对View的位置
+        PopupMenu popupMenu = new PopupMenu(view.getContext(), view);
+        // menu布局
+        popupMenu.getMenuInflater().inflate(R.menu.cycler_menu, popupMenu.getMenu());
+        // menu的item点击事件
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                //在这里面写菜单项目的点击事件
+                Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+        // PopupMenu关闭事件
+        popupMenu.setOnDismissListener(new PopupMenu.OnDismissListener() {
+            @Override
+            public void onDismiss(PopupMenu menu) {
+                // Toast.makeText(getApplicationContext(), "关闭PopupMenu", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        popupMenu.show();
     }
 
     @Override
