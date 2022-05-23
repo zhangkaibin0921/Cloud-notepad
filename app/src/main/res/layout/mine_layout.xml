@@ -190,4 +190,43 @@
 
     </LinearLayout>
 
+    <View android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="#CACCCC"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"/>
+
+    <!--    退出登录-->
+    <LinearLayout
+        android:id="@+id/layout_logout"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/white"
+        android:paddingTop="15dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:layout_width="38dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="@dimen/padding_left_and_right"
+            android:layout_marginRight="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/callus" />
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="298dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="退出登录"
+            android:textColor="#7e7e7e"
+            android:textSize="19sp" />
+
+        <ImageView
+            android:layout_width="34dp"
+            android:layout_height="29dp"
+            android:src="@drawable/arrow_forward" />
+
+    </LinearLayout>
+
 </LinearLayout>
