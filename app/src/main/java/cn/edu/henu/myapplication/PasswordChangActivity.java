@@ -39,23 +39,12 @@ public class PasswordChangActivity extends AppCompatActivity {
         key1 = findViewById(R.id.key1);
         re_key1 = findViewById(R.id.rekey1);
         btn = findViewById(R.id.btn_pwd_change);
+
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //UserInfoDB user = (UserInfoDB) UserInfoDB.getCurrentUser();
-//                user.setKey_info(re_key1.getText().toString());
-//                user.update(user.getObjectId(), new UpdateListener() {
-//                    @Override
-//                    public void done(BmobException e) {
-//                        if (e == null) {
-//                            Toast.makeText(PasswordChangActivity.this,"密码修改成功",Toast.LENGTH_SHORT).show();
-//                        } else {
-//                            Log.e("BMOB", e.toString());
-//                            Toast.makeText(PasswordChangActivity.this,"密码修改失败",Toast.LENGTH_SHORT).show();
-//
-//                        }
-//                    }
-//                });
+                updatePassword(view);
             }
         });
 
@@ -67,6 +56,24 @@ public class PasswordChangActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PasswordChangActivity.this, cn.edu.henu.myapplication.ui.mine.MineFragment.class);
                 startActivity(intent);
+            }
+        });
+    }
+    /**
+     * 提供旧密码修改密码
+     */
+    private void updatePassword(final View view){
+        String oldPwd=key1.getText().toString();
+        String newPwd=re_key1.getText().toString();
+        //TODO 此处替换为你的旧密码和新密码
+        BmobUser.updateCurrentUserPassword(oldPwd, newPwd, new UpdateListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null) {
+                    Snackbar.make(view, "更改密码成功", Snackbar.LENGTH_LONG).show();
+                } else {
+                    Snackbar.make(view, "更改密码失败：" + e.getMessage(), Snackbar.LENGTH_LONG).show();
+                }
             }
         });
     }
