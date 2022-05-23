@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
@@ -51,25 +53,31 @@ public class RegisteredActivity extends AppCompatActivity {
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UserInfoDB user = new UserInfoDB();
-                user.setUser_name(user_name.getText().toString());
-                user.setPhone(phone_number.getText().toString());
-                if(key_number.getText().toString().equals(re_key.getText().toString())){
-                    user.setKey_info(key_number.getText().toString());
-                }else{
-                    Toast.makeText(RegisteredActivity.this,"您两次输入的密码不一致，请重新输入!",Toast.LENGTH_SHORT).show();
+                signUp(view);
+            }
+        });
+
+    }
+    private void signUp(final View view) {
+        final UserInfoDB user = new UserInfoDB();
+        user.setUsername(user_name.getText().toString());
+        user.setPhone(phone_number.getText().toString());
+        if(key_number.getText().toString().equals(re_key.getText().toString())){
+            user.setPassword(key_number.getText().toString());
+        }else{
+            Toast.makeText(RegisteredActivity.this,"您两次输入的密码不一致，请重新输入!",Toast.LENGTH_SHORT).show();
+        }
+
+        user.signUp(new SaveListener<UserInfoDB>() {
+            @Override
+            public void done(UserInfoDB user, BmobException e) {
+                if (e == null) {
+                    Snackbar.make(view, "注册成功", Snackbar.LENGTH_LONG).show();
+                } else {
+                    Snackbar.make(view, "尚未失败：" + e.getMessage(), Snackbar.LENGTH_LONG).show();
                 }
-
-
-                user.save(new SaveListener<String>() {
-                    @Override
-                    public void done(String s, BmobException e) {
-                        setResult(RESULT_OK);
-                        Toast.makeText(RegisteredActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
-                });
             }
         });
     }
 }
+
