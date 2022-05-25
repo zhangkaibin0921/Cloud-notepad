@@ -1,6 +1,8 @@
 package cn.edu.henu.myapplication;
 
 import static cn.bmob.v3.Bmob.getApplicationContext;
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.adapter;
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.noteList;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -17,12 +19,14 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.UpdateListener;
 import cn.edu.henu.myapplication.db.NoteBook;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
 
 
-    private List<Note> mNoteList;
+    private List<NoteBook> mNoteList;
 
     static class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -43,7 +47,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
         }
     }
 
-    public NoteAdapter(List<Note> noteList){
+    public NoteAdapter(List<NoteBook> noteList){
 
         // 传入需要展示的数据
         mNoteList = noteList;
@@ -64,16 +68,15 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
 
 
                 int position = holder.getAdapterPosition();
-                Note note = mNoteList.get(position);
+                NoteBook note = mNoteList.get(position);
 
                 Intent intent = new Intent(v.getContext(), UpdateDiary.class);
-                String contentData = note.getNoteContent();
-                String contentTitle=note.getNoteTitle();
-                int tagData = note.getNoteTag();
+                String contentData = note.getContent();
+                String contentTitle=note.getTitle();
                 // intent.putExtra("键",数据)
                 intent.putExtra("title_data",contentTitle);
                 intent.putExtra("content_data", contentData);
-                intent.putExtra("tag_data", String.valueOf(tagData));
+                intent.putExtra("objectid",note.getObjectId());
                 v.getContext().startActivity(intent);
             }
         });
@@ -83,9 +86,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
             @Override
             public void onClick(View v){
                 int position = holder.getAdapterPosition();
-                Note note = mNoteList.get(position);
+                NoteBook note = mNoteList.get(position);
 
-                String time = note.getNoteTime();
+                String time = note.getUpdatedAt();
                 Toast.makeText(v.getContext(), "笔记创建于" + time, Toast.LENGTH_LONG).show();
             }
         });
@@ -94,7 +97,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
             @Override
             public boolean onLongClick(View v) {
                 int position = holder.getAdapterPosition();
-                Note note = mNoteList.get(position);
+                NoteBook note = mNoteList.get(position);
                 // View当前PopupMenu显示的相对View的位置
                 PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
                 // menu布局
@@ -103,9 +106,22 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
+
+                        NoteBook note= new NoteBook();
+                        note.setObjectId(mNoteList.get(position).getObjectId());
+                        note.delete(new UpdateListener() {
+                            @Override
+                            public void done(BmobException e) {
+                                if (e == null) {
+                                    noteList.remove(position);
+                                    adapter= new NoteAdapter(noteList);
+                                    adapter.notifyDataSetChanged();
+                                }
+                            }
+                        });
+
                         //在这里面写菜单项目的点击事件
-                        DataSupport.deleteAll(NoteBook.class,"content=?", String.valueOf(note.getNoteContent()));
-                        Toast.makeText(getApplicationContext(), "删除成功", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(getApplicationContext(), "删除成功", Toast.LENGTH_SHORT).show();
                         return false;
                     }
                 });
@@ -124,16 +140,16 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
         });
         return holder;
     }
-    
+
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
 
         // 为子项赋值，子项被滚动到屏幕就执行
-        Note note = mNoteList.get(position);
-        holder.noteTitle.setText(note.getNoteTitle());
-        holder.noteContent.setText(note.getNoteContent());
-        holder.noteTime.setText(note.getNoteTime());
+        NoteBook note = mNoteList.get(position);
+        holder.noteTitle.setText(note.getTitle());
+        holder.noteContent.setText(note.getContent());
+        holder.noteTime.setText(note.getUpdatedAt());
     }
 
     @Override

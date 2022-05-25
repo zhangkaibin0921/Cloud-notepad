@@ -16,6 +16,10 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.security.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
+
 import cn.bmob.v3.BmobUser;
 import cn.edu.henu.myapplication.LogIn.UserInfoDB;
 import cn.edu.henu.myapplication.PasswordChangActivity;
@@ -77,7 +81,14 @@ public class MineFragment extends Fragment {
 
         tv_title.setText("我的");
 
+        Date now = new Date();
+
+
+        String create=BmobUser.getCurrentUser(UserInfoDB.class).getCreatedAt();
+
         return root;
     }
+
+
 
 }

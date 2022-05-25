@@ -13,14 +13,23 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.litepal.tablemanager.Connector;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
 
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
+import cn.edu.henu.myapplication.LogIn.UserInfoDB;
 import cn.edu.henu.myapplication.db.NoteBook;
 import cn.edu.henu.myapplication.ui.diary.DiaryFragment;
+import cn.edu.henu.myapplication.NoteAdapter;
+
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.noteList;
 
 public class AddDiary extends AppCompatActivity {
     private ImageView left,right;
@@ -37,17 +46,9 @@ public class AddDiary extends AppCompatActivity {
         content_title=findViewById(R.id.et_title);
         tv_title.setText("写笔记");
 
-
-
-
-
-        SQLiteDatabase db = Connector.getDatabase();
-
-
         left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //NoteSave();
                 AddDiary.this.finish();
             }
         });
@@ -57,9 +58,34 @@ public class AddDiary extends AppCompatActivity {
         right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NoteSave();
-                Toast.makeText(AddDiary.this,"笔记保存成功",Toast.LENGTH_LONG).show();
-                finish();
+                if (UserInfoDB.isLogin()){
+                    NoteBook note = new NoteBook();
+                    String inputContent = content.getText().toString();// 笔记的内容
+                    String inputTitle=content_title.getText().toString();
+                    note.setTitle(inputTitle);
+                    note.setContent(inputContent);
+
+
+                    note.setAuthor(BmobUser.getCurrentUser(UserInfoDB.class));
+                    note.save(new SaveListener<String>() {
+                        @Override
+                        public void done(String s, BmobException e) {
+                            if (e == null) {
+                                Toast.makeText(AddDiary.this,"笔记保存成功",Toast.LENGTH_LONG).show();
+                                //成功后提示主界面刷新数据
+                                Intent intent = new Intent();
+                                setResult(RESULT_OK, intent);
+                                //成功后将页面销毁
+                                finish();
+                            } else {
+                                Snackbar.make(view, e.getMessage(), Snackbar.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+                }else {
+                    Snackbar.make(view, "请先登录", Snackbar.LENGTH_LONG).show();
+                }
+
             }
         });
 
@@ -67,24 +93,4 @@ public class AddDiary extends AppCompatActivity {
 
     }
 
-
-    public void NoteSave(){
-        NoteBook note = new NoteBook();
-        String inputContent = content.getText().toString();// 笔记的内容
-        String inputTitle=content_title.getText().toString();
-
-
-        Calendar calendar= Calendar.getInstance();
-        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd :hh:mm:ss");
-
-        String inputTime = dateFormat.format(calendar.getTime());//getTime();// 笔记的创建时间
-        Random r=new Random();
-        int inputTag =r.nextInt() ;//getRandom();// 笔记的标识
-
-        note.setTitle(inputTitle);
-        note.setContent(inputContent);
-        note.setTime(inputTime);
-        note.setTag(inputTag);
-        note.save();
-    }
 }

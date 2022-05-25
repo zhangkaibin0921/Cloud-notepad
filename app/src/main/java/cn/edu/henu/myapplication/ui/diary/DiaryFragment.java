@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.PopupWindow;
 
 import androidx.annotation.NonNull;
@@ -24,14 +23,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-
-import org.litepal.crud.DataSupport;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.edu.henu.myapplication.AddDiary;
-import cn.edu.henu.myapplication.Note;
+import cn.edu.henu.myapplication.LogIn.UserInfoDB;
 import cn.edu.henu.myapplication.NoteAdapter;
 import cn.edu.henu.myapplication.R;
 import cn.edu.henu.myapplication.Setting;
@@ -41,15 +42,19 @@ import cn.edu.henu.myapplication.db.NoteBook;
 public class DiaryFragment extends Fragment {
     public static int DiaryCount;
 
+
     private FloatingActionButton btn_add;
     private DrawerLayout mDrawerLayout;
     private Button setting;
     Context context;
 
-    private List<Note> noteList = new ArrayList<>();
+    public static List<NoteBook> noteList = new ArrayList<>();
+    public static NoteAdapter adapter;
     private RecyclerView recyclerView;
 
     private Toolbar toolbar;
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -66,10 +71,8 @@ public class DiaryFragment extends Fragment {
         btn_add=root.findViewById(R.id.add);
 
 
+
         context=getContext();
-
-        noteList.clear();
-
 
 
 
@@ -77,21 +80,37 @@ public class DiaryFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);// 设置垂直式排列
 
-        List<NoteBook> notes = DataSupport.order("time desc").find(NoteBook.class);
+        View finalRoot = root;
+        if (UserInfoDB.isLogin()) {
+            BmobQuery<NoteBook> query = new BmobQuery<>();
+            query.addWhereEqualTo("author", UserInfoDB.getCurrentUser(UserInfoDB.class));
+            query.order("-updatedAt");
+            //包含作者信息
+            query.include("author");
 
-        for(NoteBook note : notes){
-            Note temp = new Note(note.getContent(), note.getTime(), note.getTag(),note.getTitle());
-            noteList.add(temp);
+            query.findObjects(new FindListener<NoteBook>() {
+
+                @Override
+                public void done(List<NoteBook> notes, BmobException e) {
+                    if (e == null) {
+
+                        noteList=notes;
+                        adapter= new NoteAdapter(noteList);// 创建NoteAdapter实例;
+                        recyclerView.setAdapter(adapter);// 完成适配器设置
+
+
+                        DiaryCount=adapter.getItemCount();
+
+                    } else {
+                        Snackbar.make(finalRoot, e.getMessage(), Snackbar.LENGTH_LONG).show();
+                    }
+                }
+
+            });
+        } else {
+            Snackbar.make(finalRoot, "请先登录", Snackbar.LENGTH_LONG).show();
         }
 
-
-
-        NoteAdapter adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例
-        adapter.notifyDataSetChanged();
-
-        recyclerView.setAdapter(adapter);// 完成适配器设置
-        adapter.notifyDataSetChanged();
-        DiaryCount=adapter.getItemCount();
 
 
 

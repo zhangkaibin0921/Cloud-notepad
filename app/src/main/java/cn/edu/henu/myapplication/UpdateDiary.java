@@ -18,6 +18,8 @@ import org.litepal.tablemanager.Connector;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.UpdateListener;
 import cn.edu.henu.myapplication.db.NoteBook;
 import cn.edu.henu.myapplication.ui.diary.DiaryFragment;
 
@@ -25,7 +27,7 @@ public class UpdateDiary extends AppCompatActivity{
     private ImageView left,right;
     private TextView tv_title;
     private AppCompatEditText content_biaoti,content;
-    public String tag_data,lastcontent;
+    public String objectId,lastcontent;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class UpdateDiary extends AppCompatActivity{
 
         Intent intent = UpdateDiary.this.getIntent();
         String content_data = intent.getStringExtra("content_data");
-        tag_data = intent.getStringExtra("tag_data");
+        objectId = intent.getStringExtra("objectid");
         String content_title=intent.getStringExtra("title_data");
         content.setText(content_data);
         content_biaoti.setText(content_title);
@@ -71,13 +73,26 @@ public class UpdateDiary extends AppCompatActivity{
 
 
     public void NoteUpdate(){
+
         NoteBook note = new NoteBook();
         String inputTitle=content_biaoti.getText().toString();
         String inputContent = content.getText().toString();// 从文本框获取更改后的笔记内容
 
         note.setContent(inputContent);
         note.setTitle(inputTitle);
-        note.updateAll("content=?",""+lastcontent);
+
+        note.update(objectId, new UpdateListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null) {
+                    //更新数据后提示主界面进行数据刷新
+                    Intent intent = new Intent();
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            }
+        });
+
     }
 
 }

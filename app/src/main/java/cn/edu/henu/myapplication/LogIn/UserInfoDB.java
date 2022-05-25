@@ -49,8 +49,4 @@ public class UserInfoDB extends BmobUser {
         return birthday;
     }
 
-//    @Override
-//    public Disposable save(SaveListener<String> listener) {
-//        return super.save(listener);
-//    }
 }

@@ -2,12 +2,15 @@ package cn.edu.henu.myapplication.db;
 
 import org.litepal.crud.DataSupport;
 
-public class NoteBook extends DataSupport{
+import cn.bmob.v3.BmobObject;
+import cn.edu.henu.myapplication.LogIn.UserInfoDB;
+
+public class NoteBook extends BmobObject {
     private int id;
     private String title;
     private String content;
-    private String time;
     private int tag;
+    private UserInfoDB author;
     public int getId(){
         return id;
     }
@@ -20,12 +23,6 @@ public class NoteBook extends DataSupport{
     public void setContent(String content){
         this.content = content;
     }
-    public String getTime(){
-        return time;
-    }
-    public void setTime(String time){
-        this.time = time;
-    }
     public int getTag(){
         return tag;
     }
@@ -37,5 +34,11 @@ public class NoteBook extends DataSupport{
     }
     public void setTitle(String title) {
         this.title = title;
+    }
+    public UserInfoDB getAuthor() {
+        return author;
+    }
+    public void setAuthor(UserInfoDB author) {
+        this.author = author;
     }
 }
