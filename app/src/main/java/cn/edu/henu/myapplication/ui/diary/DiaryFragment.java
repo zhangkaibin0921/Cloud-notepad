@@ -50,7 +50,7 @@ public class DiaryFragment extends Fragment {
 
     public static List<NoteBook> noteList = new ArrayList<>();
     public static NoteAdapter adapter;
-    private RecyclerView recyclerView;
+    public static RecyclerView recyclerView;
 
     private Toolbar toolbar;
 

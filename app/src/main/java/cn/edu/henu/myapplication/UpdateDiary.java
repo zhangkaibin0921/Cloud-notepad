@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.litepal.tablemanager.Connector;
 
 import java.text.SimpleDateFormat;
@@ -28,6 +30,8 @@ import cn.edu.henu.myapplication.db.NoteBook;
 import cn.edu.henu.myapplication.ui.diary.DiaryFragment;
 
 import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.adapter;
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.noteList;
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.recyclerView;
 
 public class UpdateDiary extends AppCompatActivity{
     private ImageView left,right;
@@ -103,24 +107,21 @@ public class UpdateDiary extends AppCompatActivity{
 
                     query.findObjects(new FindListener<NoteBook>() {
 
-                                          @Override
-                                          public void done(List<NoteBook> notes, BmobException e) {
-                                              if (e == null) {
+                        @Override
+                        public void done(List<NoteBook> notes, BmobException e) {
+                            if (e == null) {
 
-                                                  noteList = notes;
-                                                  adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例;
-                                                  recyclerView.setAdapter(adapter);// 完成适配器设置
+                                noteList = notes;
+                                adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例;
+                                recyclerView.setAdapter(adapter);// 完成适配器设置
 
-
-                                                  DiaryCount = adapter.getItemCount();
-                                              }
-                                          }
-                                      }
-                    finish();
+                            }
+                        }
+                    });
+                    }
                 }
-            }
-        });
 
+            });
     }
-
 }
+
