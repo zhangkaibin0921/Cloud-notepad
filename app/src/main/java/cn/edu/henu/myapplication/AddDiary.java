@@ -19,10 +19,13 @@ import org.litepal.tablemanager.Connector;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Random;
 
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.edu.henu.myapplication.LogIn.UserInfoDB;
 import cn.edu.henu.myapplication.db.NoteBook;
@@ -31,6 +34,8 @@ import cn.edu.henu.myapplication.NoteAdapter;
 
 import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.adapter;
 import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.noteList;
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.recyclerView;
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.DiaryCount;
 
 public class AddDiary extends AppCompatActivity {
     private ImageView left,right;
@@ -77,7 +82,26 @@ public class AddDiary extends AppCompatActivity {
                                 Intent intent = new Intent();
                                 setResult(RESULT_OK, intent);
                                 //成功后将页面销毁
-                                adapter.notifyDataSetChanged();
+                                BmobQuery<NoteBook> query = new BmobQuery<>();
+                                query.addWhereEqualTo("author", UserInfoDB.getCurrentUser(UserInfoDB.class));
+                                query.order("-updatedAt");
+                                //包含作者信息
+                                query.include("author");
+
+                                query.findObjects(new FindListener<NoteBook>() {
+
+                                    @Override
+                                    public void done(List<NoteBook> notes, BmobException e) {
+                                        if (e == null) {
+
+                                            noteList = notes;
+                                            adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例;
+                                            recyclerView.setAdapter(adapter);// 完成适配器设置
+                                            DiaryCount=adapter.getItemCount();
+                                        }
+                                    }
+                                });
+
                                 finish();
                             } else {
                                 Snackbar.make(view, e.getMessage(), Snackbar.LENGTH_LONG).show();

@@ -1,8 +1,10 @@
 package cn.edu.henu.myapplication;
 
 import static cn.bmob.v3.Bmob.getApplicationContext;
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.DiaryCount;
 import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.adapter;
 import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.noteList;
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.recyclerView;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -19,8 +21,11 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
+import cn.edu.henu.myapplication.LogIn.UserInfoDB;
 import cn.edu.henu.myapplication.db.NoteBook;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
@@ -113,9 +118,25 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
                             @Override
                             public void done(BmobException e) {
                                 if (e == null) {
-                                    noteList.remove(position);
-                                    adapter= new NoteAdapter(noteList);
-                                    adapter.notifyDataSetChanged();
+                                    BmobQuery<NoteBook> query = new BmobQuery<>();
+                                    query.addWhereEqualTo("author", UserInfoDB.getCurrentUser(UserInfoDB.class));
+                                    query.order("-updatedAt");
+                                    //包含作者信息
+                                    query.include("author");
+
+                                    query.findObjects(new FindListener<NoteBook>() {
+
+                                        @Override
+                                        public void done(List<NoteBook> notes, BmobException e) {
+                                            if (e == null) {
+
+                                                noteList = notes;
+                                                adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例;
+                                                recyclerView.setAdapter(adapter);// 完成适配器设置
+                                                DiaryCount=adapter.getItemCount();
+                                            }
+                                        }
+                                    });
                                 }
                             }
                         });
