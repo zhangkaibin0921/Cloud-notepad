@@ -17,11 +17,17 @@ import org.litepal.tablemanager.Connector;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
+import cn.edu.henu.myapplication.LogIn.UserInfoDB;
 import cn.edu.henu.myapplication.db.NoteBook;
 import cn.edu.henu.myapplication.ui.diary.DiaryFragment;
+
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.adapter;
 
 public class UpdateDiary extends AppCompatActivity{
     private ImageView left,right;
@@ -88,6 +94,28 @@ public class UpdateDiary extends AppCompatActivity{
                     //更新数据后提示主界面进行数据刷新
                     Intent intent = new Intent();
                     setResult(RESULT_OK, intent);
+
+                    BmobQuery<NoteBook> query = new BmobQuery<>();
+                    query.addWhereEqualTo("author", UserInfoDB.getCurrentUser(UserInfoDB.class));
+                    query.order("-updatedAt");
+                    //包含作者信息
+                    query.include("author");
+
+                    query.findObjects(new FindListener<NoteBook>() {
+
+                                          @Override
+                                          public void done(List<NoteBook> notes, BmobException e) {
+                                              if (e == null) {
+
+                                                  noteList = notes;
+                                                  adapter = new NoteAdapter(noteList);// 创建NoteAdapter实例;
+                                                  recyclerView.setAdapter(adapter);// 完成适配器设置
+
+
+                                                  DiaryCount = adapter.getItemCount();
+                                              }
+                                          }
+                                      }
                     finish();
                 }
             }

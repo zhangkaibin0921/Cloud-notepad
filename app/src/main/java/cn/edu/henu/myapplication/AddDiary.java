@@ -29,6 +29,7 @@ import cn.edu.henu.myapplication.db.NoteBook;
 import cn.edu.henu.myapplication.ui.diary.DiaryFragment;
 import cn.edu.henu.myapplication.NoteAdapter;
 
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.adapter;
 import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.noteList;
 
 public class AddDiary extends AppCompatActivity {
@@ -76,6 +77,7 @@ public class AddDiary extends AppCompatActivity {
                                 Intent intent = new Intent();
                                 setResult(RESULT_OK, intent);
                                 //成功后将页面销毁
+                                adapter.notifyDataSetChanged();
                                 finish();
                             } else {
                                 Snackbar.make(view, e.getMessage(), Snackbar.LENGTH_LONG).show();
