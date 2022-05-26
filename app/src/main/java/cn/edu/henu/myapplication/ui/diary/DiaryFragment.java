@@ -3,6 +3,7 @@ package cn.edu.henu.myapplication.ui.diary;
 import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import androidx.annotation.NonNull;
@@ -42,6 +44,9 @@ import cn.edu.henu.myapplication.db.NoteBook;
 public class DiaryFragment extends Fragment {
     public static int DiaryCount;
 
+    public static int background1;
+    public static LinearLayout layout1;
+    public static SharedPreferences sp1;
 
     private FloatingActionButton btn_add;
     private DrawerLayout mDrawerLayout;
@@ -70,6 +75,8 @@ public class DiaryFragment extends Fragment {
         Button setting=root.findViewById(R.id.setting);
         btn_add=root.findViewById(R.id.add);
 
+        background1=R.drawable.background6;
+        getBackground();
 
 
         context=getContext();
@@ -170,6 +177,13 @@ public class DiaryFragment extends Fragment {
         });
 
         return root;
+    }
+    private void getBackground(){
+        sp1=getActivity().getSharedPreferences("backgrounds", 0);
+        background1=sp1.getInt("background",background1);
+        mDrawerLayout.setBackgroundResource(background1);
+
+        //onCreateAnimation();
     }
 
 }

@@ -36,6 +36,7 @@
         <activity
             android:name=".Setting">
         </activity>
+        <activity android:name=".SkinActivity"></activity>
 
         <activity
             android:name=".AddDiary">

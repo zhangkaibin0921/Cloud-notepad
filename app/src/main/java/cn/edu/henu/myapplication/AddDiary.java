@@ -2,11 +2,13 @@ package cn.edu.henu.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,10 +43,16 @@ public class AddDiary extends AppCompatActivity {
     private ImageView left,right;
     private TextView tv_title;
     private AppCompatEditText content_title,content;
+    private int background;
+    private LinearLayout layout;
+    private SharedPreferences sp;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adddiary);
+        layout=findViewById(R.id.addiary);
+        background=R.drawable.background6;
+        getBackground();
         left=findViewById(R.id.left);
         right=findViewById(R.id.right);
         tv_title=findViewById(R.id.tv_title);
@@ -117,6 +125,11 @@ public class AddDiary extends AppCompatActivity {
 
 
 
+    }
+    private void getBackground(){
+        sp=getSharedPreferences("backgrounds", 0);
+        background=sp.getInt("background",background);
+        layout.setBackgroundResource(background);
     }
 
 }

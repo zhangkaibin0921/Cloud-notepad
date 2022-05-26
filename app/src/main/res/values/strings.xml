@@ -26,6 +26,14 @@
     <string name="setting_item3">关于</string>
     <string name="exit">退出登录</string>
 
+    <!--    背景颜色-->
+    <string name="skin_1">灰色</string>
+    <string name="skin_2">木瓜</string>
+    <string name="skin_3">中春绿</string>
+    <string name="skin_4">深蓝绿色</string>
+    <string name="skin_5">宝蓝色</string>
+    <string name="skin_6">烟色</string>
+
     <!--    注册登录-->
     <string name="account_name">用户名</string>
     <string name="passwword">密码</string>

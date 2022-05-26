@@ -1,6 +1,7 @@
 package cn.edu.henu.myapplication.ui.mine;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -36,12 +37,20 @@ public class MineFragment extends Fragment {
 
     private LinearLayout mPwdChange,logout;
 
+    private  int background1;
+    private  LinearLayout layout1;
+    private  SharedPreferences sp1;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root= inflater.inflate(R.layout.mine_layout,container,false);
 
         mInfor=root.findViewById(R.id.myinformation);
+
+        layout1=root.findViewById(R.id.mine_layout);
+        background1=R.drawable.background6;
+        getBackground();
 
         mInfor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +96,13 @@ public class MineFragment extends Fragment {
         String create=BmobUser.getCurrentUser(UserInfoDB.class).getCreatedAt();
 
         return root;
+    }
+
+    private void getBackground(){
+        sp1=getActivity().getSharedPreferences("backgrounds", 0);
+        background1=sp1.getInt("background",background1);
+        layout1.setBackgroundResource(background1);
+
     }
 
 

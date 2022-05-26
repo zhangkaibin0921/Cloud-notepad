@@ -70,4 +70,11 @@
 
     <!--    图标的颜色-->
     <color name="menu_icon">#FF000000</color>
+
+    <!--    背景颜色-->
+    <color name="木瓜">#FFEFD5</color>
+    <color name="中春绿">#00FA9A</color>
+    <color name="深蓝绿色">#00CED1</color>
+    <color name="宝蓝色">#4169E1</color>
+    <color name="烟色">	#F5F5F5</color>
 </resources>
