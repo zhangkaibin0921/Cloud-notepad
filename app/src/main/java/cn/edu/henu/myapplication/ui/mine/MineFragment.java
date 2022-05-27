@@ -18,6 +18,8 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.security.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -31,9 +33,10 @@ import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.DiaryCount;
 
 
 public class MineFragment extends Fragment {
+
     private ImageView left,right;
     private TextView tv_title;
-    private TextView mInfor,noteNumber;
+    private TextView mInfor,noteNumber,userday;
 
     private LinearLayout mPwdChange,logout;
 
@@ -92,8 +95,18 @@ public class MineFragment extends Fragment {
 
         Date now = new Date();
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date create = null;
+        try {
+             create= sdf.parse(BmobUser.getCurrentUser(UserInfoDB.class).getCreatedAt());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        int days = (int) ((now.getTime() - create.getTime()) / (1000*3600*24));
 
-        String create=BmobUser.getCurrentUser(UserInfoDB.class).getCreatedAt();
+        userday=root.findViewById(R.id.userday);
+        userday.setText((days+1)+"天");
+
 
         return root;
     }

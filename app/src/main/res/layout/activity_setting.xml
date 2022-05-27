@@ -20,12 +20,12 @@
 
     <Button
         android:clickable="true"
+        android:id="@+id/changeTheme"
         android:layout_width="match_parent"
         android:layout_height="50sp"
         android:layout_marginTop="15sp"
         android:background="#FDFCFC"
         android:gravity="center"
-        android:onClick="changeTheme"
         android:text="@string/change_style"
         android:textColor="@color/black"
         android:textSize="20sp" />

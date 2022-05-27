@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ public class Setting extends AppCompatActivity {
     private int background;
     private LinearLayout layout;
     private SharedPreferences sp;
+    private Button changeTheme;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
@@ -37,18 +39,21 @@ public class Setting extends AppCompatActivity {
                 Setting.this.finish();
             }
         });
+
+        changeTheme=findViewById(R.id.changeTheme);
+        changeTheme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Setting.this,SkinActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void getBackground(){
         sp=getSharedPreferences("backgrounds", 0);
         background=sp.getInt("background",background);
         layout.setBackgroundResource(background);
-    }
-
-
-    public void changeTheme(View view) {
-        Intent intent=new Intent(Setting.this,SkinActivity.class);
-        startActivity(intent);
-        finish();
     }
 }
