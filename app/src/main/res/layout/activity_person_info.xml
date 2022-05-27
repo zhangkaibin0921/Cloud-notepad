@@ -8,13 +8,13 @@
     android:background="@color/gray9"
     tools:context=".PersonInfo">
 
-<!--    标题栏-->
+    <!--    标题栏-->
     <cn.edu.henu.myapplication.widget.TitleLayout
         android:id="@+id/tl_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-<!--    头像-->
+    <!--    头像-->
     <LinearLayout
         android:id="@+id/ll_portrait"
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
             android:paddingLeft="@dimen/padding_left_and_right"/>
 
     </LinearLayout>
-<!--    ID号-->
+    <!--    ID号-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,9 +73,10 @@
                 android:gravity="center_vertical"
                 android:background="@null"
                 android:hint=""
+                android:textColorHint="@color/gray9"
                 android:singleLine="true"
                 android:paddingLeft="@dimen/padding_left_and_right"
-                android:textColor="@color/gray9"
+                android:textColor="@color/black"
                 android:textSize="13sp" />
 
         </LinearLayout>
@@ -123,7 +124,7 @@
                 android:textColorHint="@color/gray9"
                 android:singleLine="true"
                 android:paddingLeft="@dimen/padding_left_and_right"
-                android:textColor="@color/gray9"
+                android:textColor="@color/black"
                 android:textSize="13sp" />
 
         </LinearLayout>
@@ -171,7 +172,7 @@
                 android:textColorHint="@color/gray9"
                 android:singleLine="true"
                 android:paddingLeft="@dimen/padding_left_and_right"
-                android:textColor="@color/gray9"
+                android:textColor="@color/black"
                 android:textSize="13sp" />
 
         </LinearLayout>
@@ -218,7 +219,7 @@
                 android:textColorHint="@color/gray9"
                 android:singleLine="true"
                 android:paddingLeft="@dimen/padding_left_and_right"
-                android:textColor="@color/gray9"
+                android:textColor="@color/black"
                 android:textSize="13sp" />
 
         </LinearLayout>
@@ -266,7 +267,7 @@
                 android:textColorHint="@color/gray9"
                 android:singleLine="true"
                 android:paddingLeft="@dimen/padding_left_and_right"
-                android:textColor="@color/gray9"
+                android:textColor="@color/black"
                 android:textSize="13sp" />
 
         </LinearLayout>
