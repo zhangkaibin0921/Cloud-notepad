@@ -54,8 +54,7 @@ public class PasswordChangActivity extends AppCompatActivity {
         mImgBack2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PasswordChangActivity.this, cn.edu.henu.myapplication.ui.mine.MineFragment.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

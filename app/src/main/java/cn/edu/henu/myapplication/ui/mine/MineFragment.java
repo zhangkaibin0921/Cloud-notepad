@@ -25,6 +25,7 @@ import java.util.Date;
 
 import cn.bmob.v3.BmobUser;
 import cn.edu.henu.myapplication.LogIn.UserInfoDB;
+import cn.edu.henu.myapplication.LoginActivity;
 import cn.edu.henu.myapplication.PasswordChangActivity;
 import cn.edu.henu.myapplication.PersonInfo;
 import cn.edu.henu.myapplication.R;
@@ -78,6 +79,7 @@ public class MineFragment extends Fragment {
             public void onClick(View view) {
                 BmobUser.getCurrentUser(UserInfoDB.class).logOut();
                 Snackbar.make(view, "退出登录成功", Snackbar.LENGTH_LONG).show();
+                startActivity(new Intent(root.getContext(), LoginActivity.class));
             }
         });
 
