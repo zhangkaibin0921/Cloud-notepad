@@ -154,9 +154,18 @@ public class DiaryFragment extends Fragment {
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        myPopupWindow.dismiss();
                         Intent intent = new Intent();
                         intent.setClass(context, AddDiary.class);
                         startActivity(intent);
+                    }
+                });
+
+                Button bc = contentView.findViewById(R.id.cancel);
+                bc.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        myPopupWindow.dismiss();
                     }
                 });
             }

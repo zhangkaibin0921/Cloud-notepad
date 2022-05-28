@@ -44,6 +44,20 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#fa7829"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancel"
+        android:text="cancel"
+        android:textSize="25sp"
+        android:backgroundTint="@color/white"
+        />
 
 </LinearLayout>
     <!--底部弹窗-->
