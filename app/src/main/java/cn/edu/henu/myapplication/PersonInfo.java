@@ -1,5 +1,6 @@
 package cn.edu.henu.myapplication;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,9 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.List;
+
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
 import cn.edu.henu.myapplication.LogIn.UserInfoDB;
 import cn.edu.henu.myapplication.widget.TitleLayout;
@@ -32,6 +37,7 @@ public class PersonInfo extends AppCompatActivity {
         live_place = findViewById(R.id.content_ig_region);
         birthday = findViewById(R.id.content_ig_brithday);
         titleLayout = findViewById(R.id.tl_title);
+        query(titleLayout);
         titleLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,5 +66,24 @@ public class PersonInfo extends AppCompatActivity {
         });
 
     }
+    private void query(final View view){
+        BmobQuery<UserInfoDB> info = new BmobQuery<>();
+        UserInfoDB user = BmobUser.getCurrentUser(UserInfoDB.class);
+        info.addWhereEqualTo("username",user.getUsername());
+        info.findObjects(new FindListener<UserInfoDB>() {
+            @Override
+            public void done(List<UserInfoDB> list, BmobException e) {
+                if(e == null){
+                    ID.setText(user.getID());
+                    username.setText(user.getUsername());
+                    sex.setText(user.getSex());
+                    live_place.setText(user.getLive_place());
+                    birthday.setText(user.getBirthday());
+                }
+            }
+        });
+    }
+
+
 
 }
