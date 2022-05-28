@@ -48,6 +48,7 @@ public class PersonInfo extends AppCompatActivity {
     }
     private void updateUser(final View view){
         final UserInfoDB user = BmobUser.getCurrentUser(UserInfoDB.class);
+        user.setID(ID.getText().toString());
         user.setUsername(username.getText().toString());
         user.setSex(sex.getText().toString());
         user.setLive_place(live_place.getText().toString());
