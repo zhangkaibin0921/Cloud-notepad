@@ -16,7 +16,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/mw"
-        android:text="new"
+        android:text="new Diary"
+        android:textSize="25sp"
+        android:backgroundTint="@color/white"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#fa7829"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/audio"
+        android:text="New Tape"
         android:textSize="25sp"
         android:backgroundTint="@color/white"
         />
@@ -25,12 +41,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#fa7829"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
         />
 
     <TextView
@@ -58,6 +68,8 @@
         android:textSize="25sp"
         android:backgroundTint="@color/white"
         />
+
+
 
 </LinearLayout>
     <!--底部弹窗-->

@@ -87,6 +87,12 @@ public class SkinActivity extends AppCompatActivity {
                     getBackground();
                     back();
                     break;
+                case 6:
+                    background=R.drawable.background7;
+                    setBackground(background);
+                    getBackground();
+                    back();
+                    break;
                 default:
                     break;
             }
@@ -104,7 +110,7 @@ public class SkinActivity extends AppCompatActivity {
         background=sp.getInt("background",background);
         layout.setBackgroundResource(background);
         mDrawerLayout.setBackgroundResource(background);
-        layout1.setBackgroundResource(background);
+        //layout1.setBackgroundResource(background);
     }
     //写入背景
     private void setBackground(int background){
@@ -134,9 +140,9 @@ public class SkinActivity extends AppCompatActivity {
         // TODO Auto-generated method stub
         List<Map<String,Object>>list=new ArrayList<Map<String,Object>>();
         int []skin_imgs={ R.drawable.background1, R.drawable.background2, R.drawable.background3,
-                R.drawable.background4,R.drawable.background5,R.drawable.background6 };
+                R.drawable.background4,R.drawable.background5,R.drawable.background6,R.drawable.background7};
         int []skin_txts={ R.string.skin_1, R.string.skin_2,
-                R.string.skin_3,R.string.skin_4,R.string.skin_5, R.string.skin_6 };
+                R.string.skin_3,R.string.skin_4,R.string.skin_5, R.string.skin_6 ,R.string.skin_7};
         for(int i=0;i<skin_imgs.length;i++){
             HashMap<String,Object> map=new HashMap<String,Object>();
             map.put("skin_img", skin_imgs[i]);
