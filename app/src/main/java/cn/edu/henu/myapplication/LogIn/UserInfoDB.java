@@ -17,36 +17,28 @@ public class UserInfoDB extends BmobUser {
     public String getPhone(){
         return phone;
     }
-
     public void setID(String ID) {
         this.ID = ID;
     }
-
     public String getID() {
         return ID;
     }
-
     public void setSex(String sex) {
         this.sex = sex;
     }
     public String getSex(){
         return sex;
     }
-
     public void setLive_place(String live_place) {
         this.live_place = live_place;
     }
-
     public String getLive_place() {
         return live_place;
     }
-
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
-
     public String getBirthday() {
         return birthday;
     }
-
 }

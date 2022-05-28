@@ -42,7 +42,7 @@ public class MineFragment extends Fragment {
     private LinearLayout logout;
 
     private  int background1;
-    private  LinearLayout layout1;
+    public static  LinearLayout layout1;
     private  SharedPreferences sp1;
 
 

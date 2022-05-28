@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
             android:gravity="center"
-            android:text="登录界面"
+            android:text="云备忘录"
 
             android:textColor="#ffffff"
             android:textSize="36sp" />

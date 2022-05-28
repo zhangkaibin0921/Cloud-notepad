@@ -49,7 +49,7 @@ public class DiaryFragment extends Fragment {
     public static SharedPreferences sp1;
 
     private FloatingActionButton btn_add;
-    private DrawerLayout mDrawerLayout;
+    public static DrawerLayout mDrawerLayout;
     private Button setting;
     Context context;
 
@@ -100,14 +100,10 @@ public class DiaryFragment extends Fragment {
                 @Override
                 public void done(List<NoteBook> notes, BmobException e) {
                     if (e == null) {
-
                         noteList=notes;
                         adapter= new NoteAdapter(noteList);// 创建NoteAdapter实例;
                         recyclerView.setAdapter(adapter);// 完成适配器设置
-
-
                         DiaryCount=adapter.getItemCount();
-
                     } else {
                         Snackbar.make(finalRoot, e.getMessage(), Snackbar.LENGTH_LONG).show();
                     }
@@ -154,9 +150,18 @@ public class DiaryFragment extends Fragment {
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        myPopupWindow.dismiss();
                         Intent intent = new Intent();
                         intent.setClass(context, AddDiary.class);
                         startActivity(intent);
+                    }
+                });
+
+                Button bc = contentView.findViewById(R.id.cancel);
+                bc.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        myPopupWindow.dismiss();
                     }
                 });
             }
