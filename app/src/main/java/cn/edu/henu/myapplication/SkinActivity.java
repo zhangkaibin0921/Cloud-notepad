@@ -19,6 +19,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.layout1;
+import static cn.edu.henu.myapplication.ui.diary.DiaryFragment.mDrawerLayout;
+
 public class SkinActivity extends AppCompatActivity {
 
     private GridView grid;//网格布局
@@ -100,6 +103,8 @@ public class SkinActivity extends AppCompatActivity {
         sp=getSharedPreferences("backgrounds", Context.MODE_PRIVATE);
         background=sp.getInt("background",background);
         layout.setBackgroundResource(background);
+        mDrawerLayout.setBackgroundResource(background);
+        layout1.setBackgroundResource(background);
     }
     //写入背景
     private void setBackground(int background){

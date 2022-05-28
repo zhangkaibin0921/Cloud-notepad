@@ -42,7 +42,7 @@ public class MineFragment extends Fragment {
     private LinearLayout mPwdChange,logout;
 
     private  int background1;
-    private  LinearLayout layout1;
+    public static  LinearLayout layout1;
     private  SharedPreferences sp1;
 
 
@@ -54,7 +54,6 @@ public class MineFragment extends Fragment {
 
         layout1=root.findViewById(R.id.mine_layout);
         background1=R.drawable.background6;
-        getBackground();
 
         mInfor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,14 +111,4 @@ public class MineFragment extends Fragment {
 
         return root;
     }
-
-    private void getBackground(){
-        sp1=getActivity().getSharedPreferences("backgrounds", 0);
-        background1=sp1.getInt("background",background1);
-        layout1.setBackgroundResource(background1);
-
-    }
-
-
-
 }
