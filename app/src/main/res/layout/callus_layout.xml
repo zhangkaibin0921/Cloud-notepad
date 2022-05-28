@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".CallUs">
+
+    <TextView
+        android:layout_width="139dp"
+        android:layout_height="68dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/item_margin_left_and_right"
+        android:layout_marginTop="@dimen/item_margin_top_and_bottom"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center"
+        android:text="联系我们"
+        android:textColor="@color/gray0"
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1pt"
+        android:layout_margin="@dimen/item_margin_left_and_right"
+        android:background="#eeeeee" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_margin="@dimen/item_margin_left_and_right"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/message_padding">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/mail" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:background="#00000000"
+            android:text="电子邮箱：3301043642@qq.com"
+            android:padding="5dip"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="77dp"
+        android:layout_margin="@dimen/item_margin_left_and_right"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/message_padding">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/phone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:background="#00000000"
+            android:text="电话：xxx"
+            android:padding="5dip"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/message_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:layout_margin="@dimen/item_margin_left_and_right"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/message_padding">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/person" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:background="#00000000"
+                android:padding="5dip"
+                android:text="相关人员"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:background="#00000000"
+            android:padding="5dip"
+            android:layout_marginTop="-14dp"
+            android:text="张开斌 张素雅 雷思颖 董恒冰 刘沛文 张文威 朱康博"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

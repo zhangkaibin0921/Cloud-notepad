@@ -71,5 +71,9 @@
             android:name=".LoginVertifyActivity">
         </activity>
 
+        <activity
+            android:name=".CallUs">
+        </activity>
+
     </application>
 </manifest>

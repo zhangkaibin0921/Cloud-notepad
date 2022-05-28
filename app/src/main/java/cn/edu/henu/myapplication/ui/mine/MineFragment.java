@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,13 +16,12 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import java.security.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import cn.bmob.v3.BmobUser;
+import cn.edu.henu.myapplication.CallUs;
 import cn.edu.henu.myapplication.LogIn.UserInfoDB;
 import cn.edu.henu.myapplication.LoginActivity;
 import cn.edu.henu.myapplication.PasswordChangActivity;
@@ -37,9 +35,11 @@ public class MineFragment extends Fragment {
 
     private ImageView left,right;
     private TextView tv_title;
-    private TextView mInfor,noteNumber,userday;
+    private TextView mInfor,noteNumber,userday,mCallUs;
 
-    private LinearLayout mPwdChange,logout;
+
+    private LinearLayout mPwdChange;
+    private LinearLayout logout;
 
     private  int background1;
     private  LinearLayout layout1;
@@ -51,7 +51,6 @@ public class MineFragment extends Fragment {
         View root= inflater.inflate(R.layout.mine_layout,container,false);
 
         mInfor=root.findViewById(R.id.myinformation);
-
         layout1=root.findViewById(R.id.mine_layout);
         background1=R.drawable.background6;
         getBackground();
@@ -60,6 +59,15 @@ public class MineFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), PersonInfo.class);
+                startActivity(intent);
+            }
+        });
+
+        mCallUs = root.findViewById(R.id.callus);
+        mCallUs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CallUs.class);
                 startActivity(intent);
             }
         });
