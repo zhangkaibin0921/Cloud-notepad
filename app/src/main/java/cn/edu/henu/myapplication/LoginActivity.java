@@ -67,11 +67,8 @@ public class LoginActivity extends AppCompatActivity{
     private void login(final View view) {
         final String accountName = phoneNumber.getText().toString().trim();//账号
         final String accountPassword = password.getText().toString().trim();//密码
-
         final UserInfoDB user = new UserInfoDB();
-        //此处替换为你的用户名
         user.setUsername(accountName);
-        //此处替换为你的密码
         user.setPassword(accountPassword);
         user.login(new SaveListener<UserInfoDB>() {
             @Override

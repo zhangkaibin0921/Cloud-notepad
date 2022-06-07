@@ -22,7 +22,7 @@
         android:ellipsize="marquee"
         android:gravity="center_horizontal|center"
         android:singleLine="true"
-        android:text="标题栏"
+        android:text="个人信息"
         android:textColor="@android:color/black"
         android:textSize="20dp" />
 

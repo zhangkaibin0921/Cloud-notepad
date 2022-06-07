@@ -175,7 +175,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
 
     @Override
     public int getItemCount(){
-
         // 告诉RecyclerView一共有多少子项
         return mNoteList.size();
     }

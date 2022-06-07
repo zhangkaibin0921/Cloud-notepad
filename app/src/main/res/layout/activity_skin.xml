@@ -15,36 +15,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        <include
+            android:id="@+id/action_bar_title"
+            layout="@layout/bar_title" />
+<!--        <LinearLayout-->
+<!--            android:id="@+id/linearLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
 
 
 
 
-            <ImageButton
-                android:id="@+id/back"
-                android:layout_width="80sp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                app:srcCompat="?attr/homeAsUpIndicator"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />
+<!--            <ImageButton-->
+<!--                android:id="@+id/back"-->
+<!--                android:layout_width="80sp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_weight="1"-->
+<!--                app:srcCompat="?attr/homeAsUpIndicator"-->
+<!--                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,TouchTargetSizeCheck" />-->
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="120sp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:text="更换主题"
-                android:textSize="20sp"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--            <TextView-->
+<!--                android:id="@+id/textView3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginLeft="120sp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:text="更换主题"-->
+<!--                android:textSize="20sp"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
         <GridView
             android:id="@+id/skinGrid"

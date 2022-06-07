@@ -3,14 +3,17 @@ package cn.edu.henu.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,6 +33,8 @@ public class SkinActivity extends AppCompatActivity {
     private int background;
     private SharedPreferences sp;//存储数据
     private SharedPreferences.Editor editor;
+    private ImageView left,right;
+    private TextView tv_title;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_skin);
@@ -37,12 +42,28 @@ public class SkinActivity extends AppCompatActivity {
         background=R.drawable.background6;
         getBackground();
 
+        left=findViewById(R.id.left);
+        right=findViewById(R.id.right);
+        tv_title=findViewById(R.id.tv_title);
+        tv_title.setText("更换主题");
+        right.setImageDrawable(Drawable.createFromPath(""));
+        right.setClickable(false);
+
+
         grid= findViewById(R.id.skinGrid);
-        skin_back= findViewById(R.id.back);
-        skin_back.setOnClickListener(click);
+        
         grid.setNumColumns(2);//网格布局2列
         grid.setAdapter(getAdapter());
         grid.setOnItemClickListener(gridClick);
+
+        left.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SkinActivity.this.finish();
+            }
+        });
+
+
     }
 
     private AdapterView.OnItemClickListener gridClick=new AdapterView.OnItemClickListener() {
