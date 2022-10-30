@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="cn.edu.henu.myapplication">
+
     <!--允许联网 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
@@ -14,6 +15,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--允许读取手机状态 用于创建BmobInstallation-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
